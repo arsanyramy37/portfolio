@@ -43,15 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function positionLiquidPill(targetTab, morph = false) {
     if (!targetTab || !liquidPill || !filterTabsContainer) return;
 
-    const containerRect = filterTabsContainer.getBoundingClientRect();
-    const tabRect = targetTab.getBoundingClientRect();
-
-    const left = tabRect.left - containerRect.left;
-    const width = tabRect.width;
+    // Use native offsetLeft & offsetWidth for exact pixel alignment within container
+    const left = targetTab.offsetLeft;
+    const width = targetTab.offsetWidth;
 
     if (morph) {
       liquidPill.classList.add('is-morphing');
-      setTimeout(() => liquidPill.classList.remove('is-morphing'), 350);
+      setTimeout(() => liquidPill.classList.remove('is-morphing'), 300);
     }
 
     liquidPill.style.transform = `translate3d(${left}px, 0, 0)`;
@@ -61,19 +59,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize pill position after layout
   setTimeout(() => {
     positionLiquidPill(activeTab, false);
-  }, 60);
+  }, 40);
 
-  // Reposition on window resize
+  // Reposition on window resize, orientation change, or font loading
   window.addEventListener('resize', () => {
     positionLiquidPill(activeTab, false);
   });
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => positionLiquidPill(activeTab, false), 100);
+  });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      positionLiquidPill(activeTab, false);
+    });
+  }
+
+  // Check if device supports true hover (mouse) to prevent sticky hover on touch
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // Handle Tab Click & Smooth Filter
   filterTabs.forEach((tab) => {
-    // Hover effect: fluidly glide pill on hover
-    tab.addEventListener('mouseenter', () => {
-      positionLiquidPill(tab, true);
-    });
+    // Hover effect: fluidly glide pill on hover for desktop only
+    if (canHover) {
+      tab.addEventListener('mouseenter', () => {
+        positionLiquidPill(tab, true);
+      });
+    }
 
     tab.addEventListener('click', () => {
       filterTabs.forEach((t) => {
@@ -108,8 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Reset pill to active tab on mouseleave container
-  if (filterTabsContainer) {
+  // Reset pill to active tab on mouseleave container (desktop only)
+  if (filterTabsContainer && canHover) {
     filterTabsContainer.addEventListener('mouseleave', () => {
       positionLiquidPill(activeTab, true);
     });
