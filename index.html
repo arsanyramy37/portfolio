@@ -5,27 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Arsany Ramy | Front-End Developer portfolio showcasing experience, projects, and skills."
+      content="Arsany Ramy | Front-End Developer portfolio showcasing responsive web applications, e-commerce platforms, and interactive digital invitations."
     />
     <title>Arsany Ramy | Front-End Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Top Scroll Progress Indicator -->
+    <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Ambient Floating Light Orbs for Parallax Background -->
+    <div class="ambient-glow ambient-glow-1" data-parallax-speed="0.2"></div>
+    <div class="ambient-glow ambient-glow-2" data-parallax-speed="-0.15"></div>
+    <div class="ambient-glow ambient-glow-3" data-parallax-speed="0.25"></div>
+
     <div class="page-shell">
-      <header class="site-header">
+      <!-- Site Header -->
+      <header class="site-header" id="site-header">
         <div class="container nav-wrap">
           <a href="#home" class="brand" aria-label="Arsany Ramy home">
             <span class="brand-mark">A</span>
-            <span>Arsany Ramy</span>
+            <span class="brand-name">Arsany Ramy</span>
           </a>
 
+          <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#contact" class="button button-small mobile-hire-btn">Hire Me</a>
+          </nav>
+
           <div class="nav-actions">
+            <a
+              class="button button-small desktop-hire pulse-subtle"
+              href="#contact"
+              >Hire Me</a
+            >
             <button
               class="menu-toggle"
               type="button"
@@ -36,151 +59,273 @@
               <span></span>
               <span></span>
             </button>
-
-            <nav class="main-nav" aria-label="Main navigation">
-              <a href="#about">About</a>
-              <a href="#experience">Experience</a>
-              <a href="#skills">Skills</a>
-              <a href="#projects">Projects</a>
-              <a href="#contact">Contact</a>
-            </nav>
-
-            <a class="button button-small desktop-hire" href="#contact"
-              >Hire Me</a
-            >
           </div>
         </div>
       </header>
 
       <main id="home">
+        <!-- Hero Section -->
         <section class="hero section">
           <div class="container hero-grid">
-            <div class="hero-copy reveal">
-              <p class="eyebrow">Front-End Developer</p>
-              <h1>
-                I design clean, responsive, and user-centered web experiences.
+            <div class="hero-copy reveal-left">
+              <div class="badge-pill">
+                <span class="badge-dot"></span>
+                <span>Available for new projects</span>
+              </div>
+              <h1 class="hero-title">
+                Crafting clean, <span class="text-gradient">modern</span> &amp;
+                responsive web experiences.
               </h1>
               <p class="lead">
-                Motivated junior front-end developer focused on building
-                polished interfaces, smooth interactions, and performant digital
-                products that feel intuitive on every device.
+                Front-end developer specializing in high-performance web
+                applications, fluid animations, e-commerce storefronts, and
+                memorable interactive interfaces.
               </p>
 
               <div class="cta-row">
-                <a class="button" href="#projects">View Projects</a>
+                <a class="button button-glow" href="#projects">
+                  <span>Explore Projects</span>
+                  <svg
+                    class="button-arrow"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
                 <a class="button button-secondary" href="#contact"
                   >Let’s Talk</a
                 >
               </div>
 
               <ul class="mini-meta" aria-label="Quick details">
-                <li>
-                  <span class="meta-label">Location</span
-                  ><strong>Mansoura, Egypt</strong>
+                <li class="reveal-up" style="--reveal-delay: 0.1s">
+                  <span class="meta-label">Location</span>
+                  <strong>Mansoura, Egypt</strong>
                 </li>
-                <li>
-                  <span class="meta-label">Phone</span
-                  ><a href="tel:+201276905241">+201276905241</a>
+                <li class="reveal-up" style="--reveal-delay: 0.2s">
+                  <span class="meta-label">Phone</span>
+                  <a href="tel:+201276905241">+201276905241</a>
                 </li>
-                <li>
-                  <span class="meta-label">Email</span
-                  ><a href="mailto:arsanyramy70@gmail.com"
+                <li class="reveal-up" style="--reveal-delay: 0.3s">
+                  <span class="meta-label">Email</span>
+                  <a href="mailto:arsanyramy70@gmail.com"
                     >arsanyramy70@gmail.com</a
                   >
                 </li>
               </ul>
             </div>
 
-            <div class="hero-visual reveal">
-              <div class="portrait-frame">
-                <img src="assets/aa.jpg" alt="Portrait of Arsany Ramy" />
-                <div class="portrait-badge">
-                  <span>Available for opportunities</span>
+            <div class="hero-visual reveal-right">
+              <div class="portrait-container" id="hero-tilt-card">
+                <div class="portrait-frame">
+                  <img
+                    src="assets/new.jpeg"
+                    alt="Portrait of Arsany Ramy"
+                    loading="eager"
+                  />
+                  <div class="portrait-glass-overlay"></div>
+                </div>
+
+                <!-- Floating bespoke SVG tags with parallax -->
+                <div
+                  class="floating-badge badge-top-right float-slow"
+                  data-tilt-speed="1.4"
+                >
+                  <div class="badge-icon-box">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polygon
+                        points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                      ></polygon>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Interactive UI</strong>
+                    <small>High Performance</small>
+                  </div>
+                </div>
+
+                <div
+                  class="floating-badge badge-bottom-left float-delay"
+                  data-tilt-speed="-1.2"
+                >
+                  <div class="badge-icon-box">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                      ></path>
+                      <line x1="3" y1="6" x2="21" y2="6"></line>
+                      <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>E-Commerce &amp; Web Apps</strong>
+                    <small>RTL &amp; Modern Stacks</small>
+                  </div>
+                </div>
+
+                <div class="portrait-status-pill">
+                  <span class="status-pulse-dot"></span>
+                  <span>Front-End Developer</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="section section-muted">
-          <div class="container about-grid reveal">
-            <div class="section-heading">
-              <p class="eyebrow">About</p>
+          <div class="container about-grid">
+            <div class="section-heading reveal-left">
+              <p class="eyebrow">About Me</p>
               <h2>
-                Building experiences with clarity, performance, and intention.
+                Building digital products with clarity, performance &amp;
+                intention.
               </h2>
+              <div class="stats-cards">
+                <div
+                  class="stat-card reveal-left spot-card"
+                  style="--reveal-delay: 0.1s"
+                >
+                  <span class="stat-number">4+</span>
+                  <span class="stat-label">Live Web Projects</span>
+                </div>
+                <div
+                  class="stat-card reveal-up spot-card"
+                  style="--reveal-delay: 0.2s"
+                >
+                  <span class="stat-number">6k+</span>
+                  <span class="stat-label">Products Handled</span>
+                </div>
+                <div
+                  class="stat-card reveal-right spot-card"
+                  style="--reveal-delay: 0.3s"
+                >
+                  <span class="stat-number">100%</span>
+                  <span class="stat-label">Mobile Responsive</span>
+                </div>
+              </div>
             </div>
-            <div class="about-copy">
-              <p>
-                I am a junior front-end developer with hands-on internship and
-                project experience building responsive, mobile-first interfaces
-                using HTML, CSS, JavaScript, and Bootstrap.
+
+            <div class="about-copy reveal-right">
+              <p class="about-highlight">
+                I transform creative concepts into seamless, pixel-perfect user
+                interfaces with responsive architecture and fluid motion design.
               </p>
               <p>
-                My work emphasizes clean structure, usability, and maintainable
-                code, with a strong focus on API integration, UI/UX
-                fundamentals, accessibility, and performance optimization.
+                My expertise spans modern JavaScript (ES6+), component-driven
+                styling, API integrations, and creating intuitive shopping flows
+                as well as celebratory interactive web experiences.
               </p>
               <p>
-                I am currently deepening my React skills and applying
-                component-driven thinking to real projects while collaborating
-                effectively with teams to deliver user-focused results.
+                Whether developing comprehensive e-commerce catalogs with
+                Supabase and WhatsApp ordering, or crafting immersive
+                celebratory digital invitations with bespoke animations, I focus
+                on clean maintainable code, visual polish, and outstanding
+                performance.
               </p>
+              <div class="about-tags">
+                <span class="about-tag">Clean Architecture</span>
+                <span class="about-tag">Smooth Animations</span>
+                <span class="about-tag">Arabic RTL Support</span>
+                <span class="about-tag">UI/UX Mindset</span>
+                <span class="about-tag">Performance First</span>
+              </div>
             </div>
           </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="section">
           <div class="container">
-            <div class="section-heading reveal">
-              <p class="eyebrow">Experience</p>
-              <h2>Practical experience shaping modern interfaces.</h2>
+            <div class="section-heading reveal-up">
+              <p class="eyebrow">Work Experience</p>
+              <h2>Practical experience shaping production-ready interfaces.</h2>
             </div>
 
-            <div class="timeline reveal">
-              <article class="timeline-item">
+            <div class="timeline">
+              <article class="timeline-item reveal-left">
                 <div class="timeline-date">
-                  <span>Jul '25 — Aug '25</span>
+                  <span class="date-badge">Jul '25 — Aug '25</span>
                 </div>
-                <div class="timeline-card">
-                  <h3>Web Development Intern</h3>
-                  <p class="company">Tanta University</p>
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-card spot-card">
+                  <div class="timeline-header">
+                    <div>
+                      <h3>Web Development Intern</h3>
+                      <p class="company">Tanta University</p>
+                    </div>
+                    <span class="badge-role">Frontend</span>
+                  </div>
                   <ul>
                     <li>
                       Built responsive user interfaces and interactive
-                      components using HTML, CSS, and JavaScript.
+                      components using HTML, CSS, and modern JavaScript.
                     </li>
                     <li>
                       Delivered 3 mobile-first UI projects with consistent
-                      cross-device behavior.
+                      cross-device behavior and optimized assets.
                     </li>
                     <li>
-                      Collaborated with peers and instructors to improve
-                      usability through feedback-driven iteration.
+                      Collaborated with mentors and peers to improve usability
+                      through rapid feedback-driven iterations.
                     </li>
                   </ul>
                 </div>
               </article>
 
-              <article class="timeline-item">
+              <article class="timeline-item reveal-right">
                 <div class="timeline-date">
-                  <span>Aug '25 — Oct '25</span>
+                  <span class="date-badge">Aug '25 — Oct '25</span>
                 </div>
-                <div class="timeline-card">
-                  <h3>Web Development Intern</h3>
-                  <p class="company">NTI, Mansoura</p>
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <div class="timeline-card spot-card">
+                  <div class="timeline-header">
+                    <div>
+                      <h3>Web Development Intern</h3>
+                      <p class="company">
+                        NTI (National Telecommunication Institute), Mansoura
+                      </p>
+                    </div>
+                    <span class="badge-role">UI/UX &amp; API</span>
+                  </div>
                   <ul>
                     <li>
-                      Created modern Bootstrap layouts with responsive
-                      techniques for cross-device consistency.
+                      Created modern responsive layouts with Bootstrap 5 and
+                      custom CSS for seamless multi-screen consistency.
                     </li>
                     <li>
-                      Implemented AJAX and API integrations to display dynamic
-                      data throughout project pages.
+                      Implemented AJAX and RESTful API integrations to render
+                      dynamic data throughout client projects.
                     </li>
                     <li>
-                      Applied UI/UX fundamentals from Figma wireframes to
-                      improve clarity and navigation.
+                      Turned Figma wireframes and design systems into
+                      accessible, clean frontend code.
                     </li>
                   </ul>
                 </div>
@@ -189,170 +334,760 @@
           </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills" class="section section-muted">
           <div class="container">
-            <div class="section-heading reveal">
-              <p class="eyebrow">Skills</p>
-              <h2>Core tools and strengths.</h2>
+            <div class="section-heading reveal-up">
+              <p class="eyebrow">Technical Skills</p>
+              <h2>Core tools, technologies &amp; design strengths.</h2>
             </div>
 
-            <div class="skills-grid reveal">
-              <div class="skill-card">
+            <div class="skills-grid">
+              <!-- Skill 1 (Left) -->
+              <div class="skill-card spot-card reveal-left">
+                <div class="skill-icon-wrapper">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="2"
+                      y="3"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
                 <h3>Front-End</h3>
                 <p>
-                  HTML, CSS, JavaScript, Bootstrap, Responsive Design, ReactJS
+                  HTML5, CSS3, JavaScript (ES6+), ReactJS, Bootstrap 5,
+                  Responsive Design, CSS Animations
                 </p>
+                <div class="skill-chips">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>React</span>
+                </div>
               </div>
-              <div class="skill-card">
-                <h3>API & Data</h3>
-                <p>RESTful APIs, AJAX, Fetch, Dynamic UI Integration</p>
+
+              <!-- Skill 2 (Right) -->
+              <div class="skill-card spot-card reveal-right">
+                <div class="skill-icon-wrapper">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                  </svg>
+                </div>
+                <h3>API &amp; Backend</h3>
+                <p>
+                  RESTful APIs, Supabase, Firebase Firestore, AJAX, Fetch API,
+                  Dynamic Data Binding
+                </p>
+                <div class="skill-chips">
+                  <span>REST</span>
+                  <span>Supabase</span>
+                  <span>Firebase</span>
+                  <span>JSON</span>
+                </div>
               </div>
-              <div class="skill-card">
-                <h3>Design & UX</h3>
-                <p>UI/UX Fundamentals, Figma, Accessibility, User Flow</p>
+
+              <!-- Skill 3 (Left) -->
+              <div class="skill-card spot-card reveal-left">
+                <div class="skill-icon-wrapper">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <h3>Design &amp; UI/UX</h3>
+                <p>
+                  Figma, Mobile-First Architecture, RTL Support,
+                  Micro-interactions, Accessibility (a11y)
+                </p>
+                <div class="skill-chips">
+                  <span>Figma</span>
+                  <span>RTL</span>
+                  <span>UX Flow</span>
+                  <span>Motion</span>
+                </div>
               </div>
-              <div class="skill-card">
-                <h3>Workflow</h3>
-                <p>Git, GitHub, VS Code, npm, Web Performance Optimization</p>
+
+              <!-- Skill 4 (Right) -->
+              <div class="skill-card spot-card reveal-right">
+                <div class="skill-icon-wrapper">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                </div>
+                <h3>Workflow &amp; Deploy</h3>
+                <p>
+                  Git, GitHub, Vercel, Cloudflare Pages, VS Code, npm,
+                  Performance Optimization
+                </p>
+                <div class="skill-chips">
+                  <span>Git</span>
+                  <span>GitHub</span>
+                  <span>Cloudflare</span>
+                  <span>Vercel</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        <!-- Projects Section with 2 Categories & Fluid Liquid Pill -->
         <section id="projects" class="section">
           <div class="container">
-            <div class="section-heading reveal">
-              <p class="eyebrow">Projects</p>
-              <h2>Selected work with real products and practical impact.</h2>
+            <div class="section-heading-row reveal-up">
+              <div class="section-heading">
+                <p class="eyebrow">Featured Work</p>
+                <h2>Selected projects with real impact.</h2>
+              </div>
+
+              <!-- Interactive Category Filter Tabs with Fluid Liquid Pill -->
+              <div
+                class="project-filter-tabs"
+                role="tablist"
+                aria-label="Project Categories"
+              >
+                <span
+                  class="tab-liquid-pill"
+                  id="tabLiquidPill"
+                  aria-hidden="true"
+                ></span>
+                <button
+                  type="button"
+                  class="filter-tab active"
+                  data-filter="all"
+                  role="tab"
+                  aria-selected="true"
+                >
+                  <span class="tab-label">All</span>
+                  <span class="filter-count">4</span>
+                </button>
+                <button
+                  type="button"
+                  class="filter-tab"
+                  data-filter="ecommerce"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  <span class="tab-label">E-Commerce</span>
+                  <span class="filter-count">2</span>
+                </button>
+                <button
+                  type="button"
+                  class="filter-tab"
+                  data-filter="invitations"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  <span class="tab-label">Invitations</span>
+                  <span class="filter-count">2</span>
+                </button>
+              </div>
             </div>
 
-            <div class="projects-grid">
-              <article class="project-card reveal">
+            <!-- Projects Grid: Cards slide in from Left and Right -->
+            <div class="projects-grid" id="projects-grid">
+              <!-- Project 1: Carolena (E-Commerce) - Slide from LEFT -->
+              <article
+                class="project-card spot-card reveal-left"
+                data-category="ecommerce"
+              >
                 <div class="project-topline">
+                  <span class="project-category-badge category-ecommerce">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                      ></path>
+                      <line x1="3" y1="6" x2="21" y2="6"></line>
+                    </svg>
+                    <span>E-Commerce</span>
+                  </span>
                   <span class="project-year">Mar — May '26</span>
+                </div>
+
+                <div class="project-header">
+                  <h3>Carolena Cosmetics E-commerce Platform</h3>
+                  <p class="project-desc">
+                    Comprehensive Arabic RTL e-commerce platform built for
+                    cosmetics with a massive catalog of 6,000+ items,
+                    multi-criteria filtering, real-time search, cart state
+                    persistence, and streamlined WhatsApp checkout.
+                  </p>
+                </div>
+
+                <ul class="project-features">
+                  <li>
+                    Supabase backend for dynamic product catalog &amp; image
+                    storage
+                  </li>
+                  <li>
+                    Instant search, multi-category filter, and persistent cart
+                    storage
+                  </li>
+                  <li>
+                    WhatsApp order formatting for seamless checkout experience
+                  </li>
+                </ul>
+
+                <div class="project-bottom">
+                  <div class="project-tags">
+                    <span>JavaScript</span>
+                    <span>Supabase</span>
+                    <span>Bootstrap 5</span>
+                    <span>Arabic RTL</span>
+                  </div>
+
                   <a
                     href="https://carolena.vercel.app/"
                     target="_blank"
                     rel="noreferrer"
-                    >Live Demo</a
+                    class="project-link-btn"
+                    aria-label="View Carolena live demo"
                   >
+                    <span>Live Demo</span>
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
                 </div>
-                <h3>Carolena Cosmetics E-commerce Platform</h3>
-                <p>
-                  Built a full Arabic RTL e-commerce experience for cosmetics
-                  with over 6,000 products, advanced filtering, search, cart
-                  persistence, and WhatsApp checkout.
-                </p>
-                <ul>
-                  <li>HTML5, CSS3, Vanilla JavaScript, Bootstrap 5</li>
-                  <li>Supabase for product management and image hosting</li>
-                  <li>Responsive, mobile-first, deployed on Vercel</li>
-                </ul>
               </article>
 
-              <article class="project-card reveal">
+              <!-- Project 2: Ashry (E-Commerce) - Slide from RIGHT -->
+              <article
+                class="project-card spot-card reveal-right"
+                data-category="ecommerce"
+              >
                 <div class="project-topline">
-                  <span class="project-year">Aug — Aug '26</span>
+                  <span class="project-category-badge category-ecommerce">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                      ></path>
+                      <line x1="3" y1="6" x2="21" y2="6"></line>
+                    </svg>
+                    <span>E-Commerce</span>
+                  </span>
+                  <span class="project-year">Aug '26</span>
+                </div>
+
+                <div class="project-header">
+                  <h3>Ashry Natural | by Dr Nour</h3>
+                  <p class="project-desc">
+                    Modern Arabic RTL storefront for natural organic cosmetics
+                    and skincare products. Features smooth product showcase
+                    galleries, dynamic quantity controls, promotional offer
+                    banners, and direct WhatsApp ordering.
+                  </p>
+                </div>
+
+                <ul class="project-features">
+                  <li>
+                    Fluid Arabic RTL layout with responsive product cards &amp;
+                    drawer
+                  </li>
+                  <li>
+                    Persistent client-side shopping cart with quantity and
+                    discount updates
+                  </li>
+                  <li>Cloudflare Pages high-speed edge deployment</li>
+                </ul>
+
+                <div class="project-bottom">
+                  <div class="project-tags">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Cloudflare</span>
+                  </div>
+
                   <a
                     href="https://ashrybydrnour.pages.dev/"
                     target="_blank"
                     rel="noreferrer"
-                    >Live Demo</a
+                    class="project-link-btn"
+                    aria-label="View Ashry natural live demo"
                   >
+                    <span>Live Demo</span>
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
                 </div>
-                <h3>Ashry natural | by Dr Nour</h3>
-                <p>
-                  Developed a clean Arabic RTL storefront for natural cosmetics
-                  and skincare, with product browsing, shopping cart controls,
-                  offers, and WhatsApp checkout.
-                </p>
-                <ul>
-                  <li>Responsive layout with product details and filtering</li>
-                  <li>Persistent cart with quantity adjustments</li>
-                  <li>Deployed on Cloudflare Pages</li>
-                </ul>
               </article>
 
-              <article class="project-card reveal">
+              <!-- Project 3: Kerollos & Mariam (Invitations) - Slide from LEFT -->
+              <article
+                class="project-card spot-card reveal-left"
+                data-category="invitations"
+              >
                 <div class="project-topline">
-                  <span class="project-year">Apr — May '25</span>
+                  <span class="project-category-badge category-invitation">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      ></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Engagement Invitation</span>
+                  </span>
+                  <span class="project-year">Oct '26</span>
+                </div>
+
+                <div class="project-header">
+                  <h3>Kerollos &amp; Mariam | Engagement Celebration</h3>
+                  <p class="project-desc">
+                    Victorian-styled interactive digital engagement invitation
+                    featuring a cinematic video intro modal, background music
+                    toggle, live ceremony countdown timer, map integrations, and
+                    guest wishes board.
+                  </p>
+                </div>
+
+                <ul class="project-features">
+                  <li>
+                    Full-screen autoplaying video overlay greeting with entrance
+                    sound
+                  </li>
+                  <li>
+                    Live engagement countdown clock with real-time day/hour tick
+                  </li>
+                  <li>
+                    Bespoke Victorian aesthetics, audio toggle, and Google Maps
+                    venue link
+                  </li>
+                </ul>
+
+                <div class="project-bottom">
+                  <div class="project-tags">
+                    <span>JavaScript</span>
+                    <span>CSS Animations</span>
+                    <span>Audio/Video API</span>
+                    <span>Cloudflare Pages</span>
+                  </div>
+
                   <a
-                    href="https://github.com/arsanyramy70/PATO-01"
+                    href="https://kerollos-mariam.pages.dev/"
                     target="_blank"
                     rel="noreferrer"
-                    >GitHub Repo</a
+                    class="project-link-btn"
+                    aria-label="View Kerollos & Mariam invitation live demo"
                   >
+                    <span>Live Demo</span>
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
                 </div>
-                <h3>Restaurant Website, NTI</h3>
-                <p>
-                  Designed a user-focused restaurant landing experience focused
-                  on navigation clarity, menu structure, and polished visual
-                  presentation.
-                </p>
-                <ul>
-                  <li>Improved usability and layout flow</li>
-                  <li>Strong emphasis on interface clarity</li>
-                  <li>Built using HTML and CSS</li>
+              </article>
+
+              <!-- Project 4: John & Mariam (Invitations) - Slide from RIGHT -->
+              <article
+                class="project-card spot-card reveal-right"
+                data-category="invitations"
+              >
+                <div class="project-topline">
+                  <span class="project-category-badge category-invitation">
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      ></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Wedding Invitation</span>
+                  </span>
+                  <span class="project-year">Sep '26</span>
+                </div>
+
+                <div class="project-header">
+                  <h3>John &amp; Mariam | Wedding Celebration</h3>
+                  <p class="project-desc">
+                    Bespoke luxury wedding invitation website featuring an
+                    interactive 3D wax-sealed envelope opening intro, elegant
+                    typography pairings, ceremony schedule timeline, and
+                    cloud-synced guest wishes via Firebase Firestore.
+                  </p>
+                </div>
+
+                <ul class="project-features">
+                  <li>
+                    Interactive tactile wax seal breaking &amp; envelope
+                    unfolding animation
+                  </li>
+                  <li>
+                    Cloud-synchronized real-time guest guestbook with Firebase
+                    Firestore
+                  </li>
+                  <li>
+                    Luxury serif typography, music controls, and responsive
+                    celebratory layout
+                  </li>
                 </ul>
+
+                <div class="project-bottom">
+                  <div class="project-tags">
+                    <span>JavaScript</span>
+                    <span>Firebase Firestore</span>
+                    <span>Interactive Animation</span>
+                    <span>Cloudflare Pages</span>
+                  </div>
+
+                  <a
+                    href="https://john-mariam.pages.dev/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="project-link-btn"
+                    aria-label="View John & Mariam wedding invitation live demo"
+                  >
+                    <span>Live Demo</span>
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </a>
+                </div>
               </article>
             </div>
           </div>
         </section>
 
+        <!-- CTA Section -->
         <section class="section cta-section">
-          <div class="container cta-panel reveal">
-            <div>
-              <p class="eyebrow">Let’s build</p>
-              <h2>
-                Looking for a front-end developer who can turn ideas into clean
-                digital experiences.
-              </h2>
+          <div class="container">
+            <div class="cta-panel reveal-scale spot-card">
+              <div class="cta-content">
+                <p class="eyebrow">Let’s Collaborate</p>
+                <h2>
+                  Looking for a front-end developer who can bring your vision to
+                  life?
+                </h2>
+                <p class="cta-subtext">
+                  Available for full-time opportunities, high-impact freelance
+                  projects, and creative collaborations.
+                </p>
+              </div>
+              <div class="cta-action">
+                <a class="button button-glow" href="#contact">
+                  <span>Start a Conversation</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
             </div>
-            <a class="button" href="#contact">Start a Conversation</a>
           </div>
         </section>
       </main>
 
+      <!-- Site Footer -->
       <footer id="contact" class="site-footer">
         <div class="container footer-grid">
-          <div>
-            <p class="eyebrow">Contact</p>
-            <h2>Arsany Ramy</h2>
-            <p class="footer-tag">Front-End Developer</p>
+          <div class="footer-brand reveal-left">
+            <p class="eyebrow footer-eyebrow">Get in touch</p>
+            <h2 class="footer-title">Arsany Ramy</h2>
+            <p class="footer-tag">Front-End Developer &bull; Mansoura, Egypt</p>
+            <p class="footer-bio">
+              Crafting responsive web products, interactive digital invitations,
+              and sleek e-commerce solutions.
+            </p>
           </div>
 
-          <div class="contact-links">
-            <a href="tel:+201276905241">+201276905241</a>
+          <div class="contact-links reveal-right">
+            <a href="tel:+201276905241" class="contact-card">
+              <div class="contact-icon-box">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <small>Phone</small>
+                <strong>+201276905241</strong>
+              </div>
+            </a>
+
             <a
               href="https://wa.me/201276905241"
               target="_blank"
               rel="noreferrer"
-              >WhatsApp</a
+              class="contact-card"
             >
-            <a href="mailto:arsanyramy70@gmail.com">arsanyramy70@gmail.com</a>
+              <div class="contact-icon-box">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <small>WhatsApp</small>
+                <strong>Chat on WhatsApp</strong>
+              </div>
+            </a>
+
+            <a href="mailto:arsanyramy70@gmail.com" class="contact-card">
+              <div class="contact-icon-box">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div>
+                <small>Email</small>
+                <strong>arsanyramy70@gmail.com</strong>
+              </div>
+            </a>
+
             <a
               href="https://github.com/arsanyramy37"
               target="_blank"
               rel="noreferrer"
-              >GitHub</a
+              class="contact-card"
             >
+              <div class="contact-icon-box">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <small>GitHub</small>
+                <strong>github.com/arsanyramy37</strong>
+              </div>
+            </a>
+
             <a
               href="https://www.linkedin.com/in/arsanyramy/"
               target="_blank"
               rel="noreferrer"
-              >LinkedIn</a
+              class="contact-card"
             >
+              <div class="contact-icon-box">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <div>
+                <small>LinkedIn</small>
+                <strong>linkedin.com/in/arsanyramy</strong>
+              </div>
+            </a>
           </div>
         </div>
 
         <div class="container footer-bottom">
           <p>
-            © <span id="year"></span> Arsany Ramy. Built with care and
-            intention.
+            &copy; <span id="year"></span> Arsany Ramy. Crafted with intention,
+            modern code &amp; smooth motion.
           </p>
+          <a href="#home" class="back-to-top-text" id="backToTopText"
+            >Back to top ↑</a
+          >
         </div>
       </footer>
     </div>
+
+    <!-- Floating Back To Top Button -->
+    <button
+      id="back-to-top"
+      class="back-to-top-btn"
+      aria-label="Back to top"
+      title="Scroll to top"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
 
     <script src="script.js"></script>
   </body>
