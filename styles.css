@@ -1011,30 +1011,56 @@ h1, h2, h3, h4 {
 
 .filter-tab .tab-label {
   position: relative;
-  transition: color 0.3s ease;
+  z-index: 3;
+  color: inherit;
+  transition: color 0.25s ease;
 }
 
 .filter-count {
+  position: relative;
+  z-index: 3;
   display: inline-block;
   padding: 2px 7px;
   border-radius: var(--radius-full);
   background: rgba(23, 23, 26, 0.08);
   font-size: 0.72rem;
   font-weight: 700;
-  transition: background 0.3s ease, color 0.3s ease;
+  color: inherit;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
-.filter-tab:hover:not(.active) {
-  color: var(--text);
-}
-
-.filter-tab.active {
+/* Any tab holding the black liquid pill or hovered gets high-contrast crisp white text */
+.filter-tab.active,
+.filter-tab.has-pill,
+.filter-tab:hover {
   color: #ffffff !important;
 }
 
-.filter-tab.active .filter-count {
-  background: rgba(255, 255, 255, 0.22);
-  color: #ffffff;
+.filter-tab.active .tab-label,
+.filter-tab.has-pill .tab-label,
+.filter-tab:hover .tab-label {
+  color: #ffffff !important;
+}
+
+.filter-tab.active .filter-count,
+.filter-tab.has-pill .filter-count,
+.filter-tab:hover .filter-count {
+  background: rgba(255, 255, 255, 0.24) !important;
+  color: #ffffff !important;
+}
+
+/* While hovering within category tabs, any tab that doesn't hold the pill has comfortable dark text */
+.project-filter-tabs:hover .filter-tab:not(:hover):not(.has-pill) {
+  color: var(--text-secondary) !important;
+}
+
+.project-filter-tabs:hover .filter-tab:not(:hover):not(.has-pill) .tab-label {
+  color: var(--text-secondary) !important;
+}
+
+.project-filter-tabs:hover .filter-tab:not(:hover):not(.has-pill) .filter-count {
+  background: rgba(23, 23, 26, 0.08) !important;
+  color: var(--text-secondary) !important;
 }
 
 /* ================= PROJECTS GRID & CARDS ================= */

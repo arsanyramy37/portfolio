@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const left = targetTab.offsetLeft;
     const width = targetTab.offsetWidth;
 
+    // Synchronize pill state so current pill tab always has crisp white text
+    filterTabs.forEach((t) => t.classList.remove('has-pill'));
+    targetTab.classList.add('has-pill');
+
     if (morph) {
       liquidPill.classList.add('is-morphing');
       setTimeout(() => liquidPill.classList.remove('is-morphing'), 300);
