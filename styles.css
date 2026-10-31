@@ -553,11 +553,23 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s var(--ease-smooth);
+  transition: transform 0.8s var(--ease-smooth), filter 0.8s ease;
 }
 
 .portrait-container:hover .portrait-frame img {
-  transform: scale(1.04);
+  transform: scale(1.05);
+  filter: brightness(1.05) saturate(1.08);
+}
+
+.portrait-frame {
+  transition: box-shadow 0.5s var(--ease-spring);
+}
+
+.portrait-container:hover .portrait-frame {
+  box-shadow:
+    0 32px 64px rgba(18, 18, 20, 0.18),
+    0 12px 28px rgba(37, 99, 235, 0.1),
+    0 0 0 1px rgba(37, 99, 235, 0.08);
 }
 
 .portrait-glass-overlay {
@@ -587,8 +599,8 @@ h1, h2, h3, h4 {
 }
 
 .floating-badge:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 24px 44px rgba(18, 18, 20, 0.18);
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 20px 40px rgba(18, 18, 20, 0.16), 0 4px 12px rgba(37, 99, 235, 0.12);
 }
 
 .badge-icon-box {
@@ -616,13 +628,13 @@ h1, h2, h3, h4 {
 }
 
 .badge-top-right {
-  top: -20px;
-  right: -25px;
+  top: -28px;
+  right: -30px;
 }
 
 .badge-bottom-left {
   bottom: 30px;
-  left: -35px;
+  left: -40px;
 }
 
 .portrait-status-pill {
@@ -653,22 +665,24 @@ h1, h2, h3, h4 {
 
 /* Floating animation keyframes */
 .float-slow {
-  animation: floatSlow 5s ease-in-out infinite alternate;
+  animation: floatSlow 6s ease-in-out infinite alternate;
 }
 
 .float-delay {
-  animation: floatDelay 6s ease-in-out infinite alternate;
-  animation-delay: -2.5s;
+  animation: floatDelay 7s ease-in-out infinite alternate;
+  animation-delay: -3s;
 }
 
 @keyframes floatSlow {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-12px) rotate(1.5deg); }
+  0%   { transform: translateY(0px)   scale(1); }
+  50%  { transform: translateY(-7px)  scale(1.01); }
+  100% { transform: translateY(-12px) scale(1); }
 }
 
 @keyframes floatDelay {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(10px) rotate(-1.5deg); }
+  0%   { transform: translateY(0px)  scale(1); }
+  50%  { transform: translateY(6px)  scale(1.01); }
+  100% { transform: translateY(10px) scale(1); }
 }
 
 /* ================= ABOUT SECTION ================= */
@@ -1514,8 +1528,36 @@ h1, h2, h3, h4 {
     gap: 40px;
   }
 
+  /* On tablet single-column layout, give the portrait-container room for badges */
+  .hero-visual {
+    padding: 0 16px;
+  }
+
+  .portrait-container {
+    width: min(100%, 400px);
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .badge-top-right {
+    top: -16px;
+    right: -10px;
+  }
+
+  .badge-bottom-left {
+    bottom: 22px;
+    left: -10px;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* About stats cards - add more breathing room on tablet */
+  .stats-cards {
+    margin-top: 44px;
+    gap: 14px;
   }
 
   .timeline::before {
@@ -1682,7 +1724,7 @@ h1, h2, h3, h4 {
 
   .hero {
     padding-top: 110px;
-    padding-bottom: 48px;
+    padding-bottom: 64px;
   }
 
   /* Hero Typography & Spacing */
@@ -1735,11 +1777,14 @@ h1, h2, h3, h4 {
   .hero-visual {
     width: 100%;
     margin-top: 10px;
+    padding: 0 12px; /* إضافة padding جانبي عشان الـ badges تتنفس */
   }
 
   .portrait-container {
     width: min(100%, 330px);
     margin: 0 auto;
+    padding-top: 18px; /* space for badge-top-right above the frame */
+    padding-bottom: 18px; /* space for portrait-status-pill below the frame */
   }
 
   .portrait-frame {
@@ -1749,17 +1794,19 @@ h1, h2, h3, h4 {
   }
 
   .badge-top-right {
-    top: 12px;
-    right: 10px;
-    padding: 8px 12px;
-    gap: 8px;
+    top: -14px;
+    right: -8px;
+    padding: 7px 11px;
+    gap: 7px;
+    font-size: 0.82rem;
   }
 
   .badge-bottom-left {
     bottom: 22px;
-    left: 10px;
-    padding: 8px 12px;
-    gap: 8px;
+    left: -8px;
+    padding: 7px 11px;
+    gap: 7px;
+    font-size: 0.82rem;
   }
 
   .portrait-status-pill {
@@ -1796,7 +1843,7 @@ h1, h2, h3, h4 {
   .stats-cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-top: 24px;
+    margin-top: 36px;
   }
 
   .stat-card {
@@ -2047,7 +2094,9 @@ h1, h2, h3, h4 {
 
   .badge-top-right,
   .badge-bottom-left {
-    padding: 6px 10px;
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    gap: 6px;
   }
 
   .badge-icon-box {

@@ -197,45 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ================= 4. HERO 3D TILT WITH MOUSE PARALLAX =================
-  const heroTiltCard = document.getElementById('hero-tilt-card');
-  if (heroTiltCard && window.matchMedia('(hover: hover)').matches) {
-    const portraitFrame = heroTiltCard.querySelector('.portrait-frame');
-    const floatingBadges = heroTiltCard.querySelectorAll('.floating-badge');
-
-    heroTiltCard.addEventListener('mousemove', (e) => {
-      const rect = heroTiltCard.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
-
-      if (portraitFrame) {
-        portraitFrame.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-      }
-
-      floatingBadges.forEach((badge) => {
-        const speed = parseFloat(badge.dataset.tiltSpeed || '1');
-        const badgeX = ((x - centerX) / centerX) * (14 * speed);
-        const badgeY = ((y - centerY) / centerY) * (14 * speed);
-        badge.style.transform = `translate3d(${badgeX}px, ${badgeY}px, 0) scale(1.02)`;
-      });
-    });
-
-    heroTiltCard.addEventListener('mouseleave', () => {
-      if (portraitFrame) {
-        portraitFrame.style.transform =
-          'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      }
-      floatingBadges.forEach((badge) => {
-        badge.style.transform = 'translate3d(0px, 0px, 0) scale(1)';
-      });
-    });
-  }
+  // ================= 4. HERO 3D TILT WITH MOUSE PARALLAX (DISABLED) =================
+  // The previous tilt interaction has been removed because it caused an undesirable rotation on click/touch.
+  // The portrait now uses a simple scale‑in effect on press (handled via CSS).
 
   // ================= 5. SPOTLIGHT GLOW ON CARDS =================
   const spotCards = document.querySelectorAll('.spot-card');
